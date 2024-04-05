@@ -10,8 +10,4 @@ export const HealthCheckHandler = new Elysia()
             message: `[${serverSettings.appName}] - Health checked successfully`,
 
         }
-    }, {
-        detail: {
-            tags: ['hc']
-        }
     })
