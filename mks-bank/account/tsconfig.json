@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",                                  
+    "module": "ES2022",                            
+    "moduleResolution": "node",                    
+    "types": ["bun-types"],                        
+    "esModuleInterop": true,                       
+    "forceConsistentCasingInFileNames": true,      
+    "strict": true,                                
+    "skipLibCheck": true,                          
+    "baseUrl": "src",
+    "paths": {
+      "@/app/*": ["app/*"],
+      "@/settings/*": ["settings/*"],
+      "@/services/*": ["app/services/*"],
+      "@/handlers/*": ["app/handlers/*"],
+      "@/providers/*": ["app/providers/*"],
+      "@/errors/*": ["app/errors/*"],
+      "@/shared/*": ["../../shared/src/*"]
+    },
+  }
+}
