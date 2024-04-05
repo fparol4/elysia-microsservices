@@ -1,7 +1,7 @@
 import { describe, expect, it } from "bun:test";
 import { app } from '@/app/application'
-import serverSettings from "@/settings/server.settings";
 import { HttpStatusCode } from "axios";
+import serverSettings from "@/settings/server.settings";
 
 describe('Application health-check', () => {
     it('Should return HttpStatusCode.OK when server is running up', async () => {
@@ -14,7 +14,7 @@ describe('Application health-check', () => {
         expect(response.status).toBe(HttpStatusCode.Ok)
         expect(responseContext).toStrictEqual({
             statusCode: HttpStatusCode.Ok,
-            message: 'Health checked successfully',
+            message: '[AuthService] - Health checked successfully',
         })
     })
 })

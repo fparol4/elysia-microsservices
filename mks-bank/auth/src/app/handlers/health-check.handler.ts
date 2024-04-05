@@ -1,3 +1,4 @@
+import serverSettings from '@/settings/server.settings'
 import { HttpStatusCode } from 'axios'
 import Elysia from 'elysia'
 
@@ -6,7 +7,7 @@ export const HealthCheckHandler = new Elysia()
         context.set.status = HttpStatusCode.Ok
         return {
             statusCode: HttpStatusCode.Ok,
-            message: 'Health checked successfully',
+            message: `[${serverSettings.appName}] - Health checked successfully`,
         }
     }, {
         detail: {

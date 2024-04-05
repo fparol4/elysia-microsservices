@@ -1,3 +1,5 @@
 import application from '@/app/application'
+import serverSettings from './settings/server.settings'
 
-application.listen(3000, () => console.log('[3000] - Listening'))
+const startupText = `[${serverSettings.port}] - [${serverSettings.appName}] - Listening`
+application.listen(serverSettings.port, () => console.log(startupText))

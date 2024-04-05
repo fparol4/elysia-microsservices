@@ -1,20 +1,18 @@
 import { Elysia } from 'elysia'
-import appSetup from '@/app/setup'
-
 import { HealthCheckHandler } from '@/handlers/health-check.handler'
 import { LoginHandler } from '@/handlers/login.handler'
 import { ValidateTokenHandler } from './handlers/validate-token.handler'
-import { logger } from '@/settings/pino.settings'
+import { logger } from "@bogeychan/elysia-logger";
+
+import swagger from '@elysiajs/swagger';
+import swaggerSettings from '@/settings/swagger.settings';
+import cors from '@elysiajs/cors';
 
 const application = new Elysia()
-application.use(appSetup)
+application.use(cors())
+application.use(swagger(swaggerSettings))
+application.use(logger())
 
-/** Setup Logger */
-application
-    .decorate('logger', logger)
-    .onBeforeHandle(({ logger, body, path }) => {
-        logger.info(body, `[${path}] - Request Received Succesfully')`)
-    })
 
 /** Handlers */
 application.use(HealthCheckHandler)
